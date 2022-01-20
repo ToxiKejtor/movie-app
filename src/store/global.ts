@@ -33,7 +33,6 @@ const mutations = {
 const actions = {
   async fetchMovies(): Promise<void> {
     const results = await fetchMovies(state.params);
-    console.log({ results });
     mutations.setResults(results);
   },
 };
