@@ -5,7 +5,7 @@
       label="Search movies..."
       v-model="search"
     ></v-text-field>
-    <v-btn class="ml-2">Search</v-btn>
+    <v-btn class="ml-2" @click="actions.fetchMovies()">Search</v-btn>
   </div>
 </template>
 
