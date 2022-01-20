@@ -10,7 +10,7 @@ const { fetchMovies } = useMovieApi();
 const state = reactive<State>({
   params: {
     title: "",
-    page: 0,
+    page: 1,
   },
   results: {
     page: 0,

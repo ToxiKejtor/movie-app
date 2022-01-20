@@ -19,7 +19,7 @@ export interface Record {
 
 export default function useMovieApi() {
   const fetchMovies = async (params: Params): Promise<MoviesResult> => {
-    const url = `https://jsonmock.hackerrank.com/api/movies/search/?Title=${params.title}&Page=${params.page}`;
+    const url = `https://jsonmock.hackerrank.com/api/movies/search/?Title=${params.title}&page=${params.page}`;
     const data = await fetch(url);
     return await data.json();
   };

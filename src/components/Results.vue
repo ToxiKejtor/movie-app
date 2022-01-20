@@ -10,6 +10,7 @@
         </div>
       </v-list-item>
     </v-list>
+    <PaginationButtons />
   </v-card>
 </template>
 
@@ -18,8 +19,13 @@ import { defineComponent } from "@vue/composition-api";
 
 import useStore from "../store/global";
 
+import PaginationButtons from "@/components/PaginationButtons.vue";
+
 export default defineComponent({
   name: "Results",
+  components: {
+    PaginationButtons,
+  },
   setup() {
     const { state } = useStore;
 
