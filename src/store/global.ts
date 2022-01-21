@@ -39,6 +39,9 @@ const mutations = {
       state.favourites.push(item);
     }
   },
+  removeFavourite(id: string): void {
+    state.favourites = state.favourites.filter((item) => item.imdbID !== id);
+  },
 };
 
 const actions = {
