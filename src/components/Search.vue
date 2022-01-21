@@ -6,7 +6,13 @@
       v-model="search"
       @keydown.enter="actions.fetchMovies()"
     ></v-text-field>
-    <v-btn class="ml-2" @click="actions.fetchMovies()">Search</v-btn>
+    <v-btn
+      class="ml-2"
+      @click="actions.fetchMovies()"
+      :loading="state.status === 'progress'"
+      :disabled="search === ''"
+      >Search</v-btn
+    >
   </div>
 </template>
 

@@ -1,7 +1,10 @@
 <template>
-  <v-card>
-    <v-card-title class="justify-center">Favourites</v-card-title>
-    <v-list>
+  <v-card class="text-center py-5">
+    <v-card-title class="text-center d-block">Favourites</v-card-title>
+    <v-card-subtitle data-test="empty" v-if="state.favourites.length === 0">
+      Your favourites will be displayed here
+    </v-card-subtitle>
+    <v-list v-else>
       <v-list-item v-for="movie in state.favourites" :key="movie.imdbID">
         <v-btn
           data-test="favourite-remove"

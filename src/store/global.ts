@@ -5,14 +5,18 @@ import useMovieApi, {
   Record,
 } from "@/composables/useMovieApi";
 
+type Status = "init" | "progress" | "ready";
+
 interface State {
   params: Params;
   results: MoviesResult;
   favourites: Record[];
+  status: Status;
 }
 
 const { fetchMovies } = useMovieApi();
 const state = reactive<State>({
+  status: "init",
   params: {
     title: "",
     page: 1,
@@ -28,6 +32,9 @@ const state = reactive<State>({
 });
 
 const mutations = {
+  setStatus(status: Status): void {
+    state.status = status;
+  },
   setParams(params: Params): void {
     state.params = params;
   },
@@ -46,8 +53,10 @@ const mutations = {
 
 const actions = {
   async fetchMovies(): Promise<void> {
+    mutations.setStatus("progress");
     const results = await fetchMovies(state.params);
     mutations.setResults(results);
+    mutations.setStatus("ready");
   },
 };
 
