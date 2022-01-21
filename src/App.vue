@@ -4,6 +4,7 @@
       <v-container>
         <Search />
         <Results />
+        <Favourites />
       </v-container>
     </v-main>
   </v-app>
@@ -13,9 +14,10 @@
 import Vue from "vue";
 import Search from "@/components/Search.vue";
 import Results from "@/components/Results.vue";
+import Favourites from "@/components/Favourites.vue";
 
 export default Vue.extend({
   name: "App",
-  components: { Search, Results },
+  components: { Search, Results, Favourites },
 });
 </script>

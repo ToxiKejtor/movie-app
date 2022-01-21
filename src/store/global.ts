@@ -1,9 +1,14 @@
 import { reactive, readonly } from "@vue/composition-api";
-import useMovieApi, { Params, MoviesResult } from "@/composables/useMovieApi";
+import useMovieApi, {
+  Params,
+  MoviesResult,
+  Record,
+} from "@/composables/useMovieApi";
 
 interface State {
   params: Params;
   results: MoviesResult;
+  favourites: Record[];
 }
 
 const { fetchMovies } = useMovieApi();
@@ -19,6 +24,7 @@ const state = reactive<State>({
     total_pages: 0,
     data: [],
   },
+  favourites: [],
 });
 
 const mutations = {
@@ -27,6 +33,11 @@ const mutations = {
   },
   setResults(results: MoviesResult): void {
     state.results = results;
+  },
+  addFavourite(item: Record): void {
+    if (!state.favourites.includes(item)) {
+      state.favourites.push(item);
+    }
   },
 };
 
