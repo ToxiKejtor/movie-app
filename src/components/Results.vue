@@ -26,9 +26,20 @@
     <div class="px-3" v-else>
       <v-list>
         <v-list-item v-for="movie in state.results.data" :key="movie.imdbID">
-          <v-btn small icon class="mr-3" @click="mutations.addFavourite(movie)"
-            ><v-icon>mdi-star-plus</v-icon></v-btn
-          >
+          <v-tooltip top>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                small
+                icon
+                v-bind="attrs"
+                v-on="on"
+                class="mr-3"
+                @click="mutations.addFavourite(movie)"
+                ><v-icon>mdi-star-plus</v-icon></v-btn
+              >
+            </template>
+            <span>Add to favourites</span>
+          </v-tooltip>
           <div class="text-left">
             <v-list-item-title class="results__movie-title">{{
               movie.Title

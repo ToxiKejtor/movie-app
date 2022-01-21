@@ -8,14 +8,20 @@
     </v-card-subtitle>
     <v-list v-else>
       <v-list-item v-for="movie in state.favourites" :key="movie.imdbID">
-        <v-btn
-          data-test="favourite-remove"
-          small
-          icon
-          class="mr-3"
-          @click="mutations.removeFavourite(movie.imdbID)"
-          ><v-icon>mdi-star-minus-outline</v-icon></v-btn
-        >
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              small
+              icon
+              class="mr-3"
+              v-bind="attrs"
+              v-on="on"
+              @click="mutations.removeFavourite(movie.imdbID)"
+              ><v-icon>mdi-star-minus-outline</v-icon></v-btn
+            >
+          </template>
+          <span>Remove from favourites</span>
+        </v-tooltip>
         <div class="text-left">
           <v-list-item-title class="favourites__movie-title">{{
             movie.Title
