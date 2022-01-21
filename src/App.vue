@@ -2,9 +2,17 @@
   <v-app>
     <v-main>
       <v-container>
-        <Search />
-        <Results />
-        <Favourites />
+        <v-row>
+          <v-spacer></v-spacer>
+          <v-col :cols="8">
+            <Search />
+          </v-col>
+          <v-spacer></v-spacer>
+        </v-row>
+        <v-row>
+          <v-col :cols="12" :sm="6" :md="8"><Results /></v-col>
+          <v-col :cols="12" :sm="6" :md="4"><Favourites /></v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>

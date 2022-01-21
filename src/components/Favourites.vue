@@ -1,6 +1,8 @@
 <template>
-  <v-card class="text-center py-5">
-    <v-card-title class="text-center d-block">Favourites</v-card-title>
+  <v-card class="text-center py-5" min-height="200">
+    <v-card-title class="d-flex align-center justify-center"
+      ><v-icon>mdi-star</v-icon>Favourites</v-card-title
+    >
     <v-card-subtitle data-test="empty" v-if="state.favourites.length === 0">
       Your favourites will be displayed here
     </v-card-subtitle>
@@ -38,4 +40,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.favourites__movie-title {
+  white-space: normal;
+}
+</style>

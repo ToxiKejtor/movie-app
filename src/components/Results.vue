@@ -1,5 +1,5 @@
 <template>
-  <v-card class="d-flex flex-column justify-center py-5" min-height="200">
+  <v-card class="py-5" min-height="200">
     <v-card-subtitle
       class="text-center"
       v-if="state.status === 'init'"
@@ -23,8 +23,8 @@
     >
       No results found
     </v-card-subtitle>
-    <div v-else>
-      <v-list class="px-3">
+    <div class="px-3" v-else>
+      <v-list>
         <v-list-item v-for="movie in state.results.data" :key="movie.imdbID">
           <v-btn small icon class="mr-3" @click="mutations.addFavourite(movie)"
             ><v-icon>mdi-star-plus</v-icon></v-btn
@@ -65,4 +65,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.results__movie-title {
+  white-space: normal;
+}
+</style>
