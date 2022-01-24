@@ -6,8 +6,12 @@
     <v-card-subtitle data-test="empty" v-if="state.favourites.length === 0">
       Your favourites will be displayed here
     </v-card-subtitle>
-    <v-list v-else>
-      <v-list-item v-for="movie in state.favourites" :key="movie.imdbID">
+    <v-list v-else data-test="favourites">
+      <v-list-item
+        v-for="movie in state.favourites"
+        :key="movie.imdbID"
+        data-test="favourite"
+      >
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
@@ -17,6 +21,7 @@
               v-bind="attrs"
               v-on="on"
               @click="mutations.removeFavourite(movie.imdbID)"
+              data-test="favourite-remove"
               ><v-icon>mdi-star-minus-outline</v-icon></v-btn
             >
           </template>
