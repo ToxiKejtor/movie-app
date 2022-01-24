@@ -24,11 +24,16 @@
       No results found
     </v-card-subtitle>
     <div class="px-3" v-else>
-      <v-list>
-        <v-list-item v-for="movie in state.results.data" :key="movie.imdbID">
+      <v-list data-test="results">
+        <v-list-item
+          v-for="movie in state.results.data"
+          :key="movie.imdbID"
+          data-test="record"
+        >
           <v-tooltip top>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
+                data-test="favourite-add"
                 small
                 icon
                 v-bind="attrs"
@@ -48,7 +53,7 @@
           </div>
         </v-list-item>
       </v-list>
-      <PaginationButtons />
+      <PaginationButtons data-test="pagination-buttons" />
     </div>
   </v-card>
 </template>
