@@ -5,12 +5,14 @@
       label="Search movies..."
       v-model="search"
       @keydown.enter="actions.fetchMovies()"
+      data-test="search"
     ></v-text-field>
     <v-btn
       class="ml-2"
       @click="actions.fetchMovies()"
       :loading="state.status === 'progress'"
       :disabled="search === ''"
+      data-test="submit"
       >Search</v-btn
     >
   </div>
