@@ -1,4 +1,12 @@
-# jibble-movie-app
+## This Project uses:
+* Vue
+* Typescript
+* Composition API
+* Vuetify
+* REST API
+* Cypress
+* Jest
+
 
 ## Project setup
 ```
